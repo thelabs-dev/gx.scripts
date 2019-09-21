@@ -20,7 +20,7 @@
 	<Target Name="BuildAll">
 		<BuildAll />
 	</Target>
-	<Target Name="BuildOne"
+	<Target Name="BuildOne">
 		<BuildOne ObjectName="$(ObjectName)" />
 	</Target>
 	<Target Name="PackageModule">
