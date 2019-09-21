@@ -1,0 +1,12 @@
+sudo: required
+dist: trusty
+language: java
+
+addons:
+  apt:
+    packages:
+    - libxml2-utils
+
+script:
+  # Check gx.msbuild
+  - xmllint gx.msbuild --noout

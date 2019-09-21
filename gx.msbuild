@@ -1,0 +1,47 @@
+<Project DefaultTargets="Test" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(GXPath)\GeneXus.Tasks.targets" />
+	<Import Project="$(GXPath)\GeneXus.Server.Tasks.targets" />
+	
+	<Target Name="OpenKnowledgeBase">
+		<OpenKnowledgeBase Directory="$(KBPath)" />
+	</Target>
+	<Target Name="Reorganize">
+		<Reorganize />
+	</Target>
+	<Target Name="SpecifyAll">
+		<SpecifyAll ForceRebuild="false" />
+	</Target>
+	<Target Name="Generate">
+		<Generate />
+	</Target>
+	<Target Name="Compile">
+		<Compile ObjectName="NameOfObjectToCompile" />
+	</Target>
+	<Target Name="BuildAll">
+		<BuildAll />
+	</Target>
+	<Target Name="BuildOne">
+		<BuildOne ObjectName="$(ObjectName)" />
+	</Target>
+	<Target Name="PackageModule">
+		<PackageModule 
+			PackageModule="$(PackageModule)"
+			OutputDirectory="$(OutputDirectory)"
+			Rebuild="true"
+		/>
+	</Target>
+	<Target Name="UpdateModule">
+		<UpdateModule 
+			PackageModule="$(PackageModule)"
+			Version ="$(VersionModule)"
+		/>
+	</Target>
+	<Target Name="UpdateFromServer" DependsOnTargets="OpenKnowledgeBase">
+		<UpdateFromServer 
+			OutputFile="$(OutputFile)"
+			UpdateKbProperties="false"
+			ServerUserName="$(ServerUserName)"
+			ServerPassword="$(ServerUserPass)"
+		/>
+	</Target>	
+</Project>
