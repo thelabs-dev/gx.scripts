@@ -21,7 +21,7 @@
 		<BuildAll />
 	</Target>
 	<Target Name="BuildOne">
-		<BuildOne ObjectName="$(ObjectName)" />
+		<BuildOne ObjectName="$(ObjectName)" ForceRebuild="$(ForceRebuild)" />
 	</Target>
 	<Target Name="PackageModule">
 		<PackageModule 
