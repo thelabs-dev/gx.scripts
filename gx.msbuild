@@ -20,7 +20,7 @@
 	<Target Name="BuildAll">
 		<BuildAll />
 	</Target>
-	<Target Name="BuildOne">
+	<Target Name="BuildOne" DependsOnTargets="OpenKnowledgeBase">
 		<BuildOne ObjectName="$(ObjectName)" ForceRebuild="$(ForceRebuild)" />
 	</Target>
 	<Target Name="PackageModule">
