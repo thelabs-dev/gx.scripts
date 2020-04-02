@@ -53,7 +53,7 @@
 		/>
 	</Target>
 	
-	<Target Name="Import">
+	<Target Name="ImportXPZ">
 		<Import File="$(ImportFile)" />
 	</Target>
 	
