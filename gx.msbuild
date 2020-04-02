@@ -5,37 +5,58 @@
 	<Target Name="OpenKnowledgeBase">
 		<OpenKnowledgeBase Directory="$(KBPath)" />
 	</Target>
+	
 	<Target Name="Reorganize">
 		<Reorganize />
 	</Target>
+	
 	<Target Name="SpecifyAll">
-		<SpecifyAll ForceRebuild="false" />
+		<SpecifyAll ForceRebuild="$(Rebuild)" />
 	</Target>
+	
 	<Target Name="Generate">
 		<Generate />
 	</Target>
+	
 	<Target Name="Compile">
 		<Compile ObjectName="NameOfObjectToCompile" />
 	</Target>
+	
 	<Target Name="BuildAll">
 		<BuildAll />
 	</Target>
+	
 	<Target Name="BuildOne" DependsOnTargets="OpenKnowledgeBase">
-		<BuildOne ObjectName="$(ObjectName)" ForceRebuild="$(ForceRebuild)" />
+		<BuildOne ObjectName="$(ObjectName)" ForceRebuild="$(Rebuild)" CompileMains="$(CompileMains)"/>
 	</Target>
+	
+	<Target Name="SetGeneratorProperty" DependsOnTargets="OpenKnowledgeBase">
+		<SetGeneratorProperty Generator="$(GeneratorName)" Name="$(PropertyName)" Value="$(PropertyValue)" />
+	</Target>
+	
+	<Target Name="SetObjectProperty" DependsOnTargets="OpenKnowledgeBase">
+		<SetObjectProperty Object="$(ObjectName)" Name="$(PropertyName)" Value="$(PropertyValue)" />
+	</Target>
+	
 	<Target Name="PackageModule">
 		<PackageModule 
 			PackageModule="$(PackageModule)"
 			OutputDirectory="$(OutputDirectory)"
-			Rebuild="true"
+			Rebuild="$(Rebuild)"
 		/>
 	</Target>
+	
 	<Target Name="UpdateModule">
 		<UpdateModule 
 			PackageModule="$(PackageModule)"
 			Version ="$(VersionModule)"
 		/>
 	</Target>
+	
+	<Target Name="Import">
+		<Import File="$(ImportFile)" />
+	</Target>
+	
 	<Target Name="UpdateFromServer" DependsOnTargets="OpenKnowledgeBase">
 		<UpdateFromServer 
 			OutputFile="$(OutputFile)"
