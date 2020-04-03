@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:msbuild="http://schemas.microsoft.com/developer/msbuild/2003">
+  <xs:element name="Project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="msbuild:Import"/>
+        <xs:element maxOccurs="unbounded" ref="msbuild:Target"/>
+      </xs:sequence>
+      <xs:attribute name="DefaultTargets" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Target">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="msbuild:Import"/>
+        <xs:element ref="msbuild:BuildAll"/>
+        <xs:element ref="msbuild:BuildOne"/>
+        <xs:element ref="msbuild:Compile"/>
+        <xs:element ref="msbuild:Export"/>
+        <xs:element ref="msbuild:Generate"/>
+        <xs:element ref="msbuild:MergeVersions"/>
+        <xs:element ref="msbuild:OpenKnowledgeBase"/>
+        <xs:element ref="msbuild:PackageModule"/>
+        <xs:element ref="msbuild:Reorganize"/>
+        <xs:element ref="msbuild:Run"/>
+        <xs:element ref="msbuild:SetActiveEnvironment"/>
+        <xs:element ref="msbuild:SetActiveVersion"/>
+        <xs:element ref="msbuild:SetDataStoreProperty"/>
+        <xs:element ref="msbuild:SetGeneratorProperty"/>
+        <xs:element ref="msbuild:SetKnowledgeBaseProperty"/>
+        <xs:element ref="msbuild:SetObjectProperty"/>
+        <xs:element ref="msbuild:SetVersionProperty"/>
+        <xs:element ref="msbuild:SpecifyAll"/>
+        <xs:element ref="msbuild:UpdateFromServer"/>
+        <xs:element ref="msbuild:UpdateModule"/>
+      </xs:choice>
+      <xs:attribute name="DependsOnTargets" type="xs:NCName"/>
+      <xs:attribute name="Name" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildAll">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="BuildOne">
+    <xs:complexType>
+      <xs:attribute name="CompileMains" use="required"/>
+      <xs:attribute name="ForceRebuild" use="required"/>
+      <xs:attribute name="ObjectName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Compile">
+    <xs:complexType>
+      <xs:attribute name="ObjectName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Export">
+    <xs:complexType>
+      <xs:attribute name="File" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Generate">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="MergeVersions">
+    <xs:complexType>
+      <xs:attribute name="SinceDate" use="required"/>
+      <xs:attribute name="SourceVersion" use="required"/>
+      <xs:attribute name="TargetVersion" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenKnowledgeBase">
+    <xs:complexType>
+      <xs:attribute name="Directory" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PackageModule">
+    <xs:complexType>
+      <xs:attribute name="OutputDirectory" use="required"/>
+      <xs:attribute name="PackageModule" use="required"/>
+      <xs:attribute name="Rebuild" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Reorganize">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Run">
+    <xs:complexType>
+      <xs:attribute name="Build" use="required"/>
+      <xs:attribute name="BuildCalled" use="required"/>
+      <xs:attribute name="DetailedNavigation" use="required"/>
+      <xs:attribute name="ForceRebuild" use="required"/>
+      <xs:attribute name="ObjectName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetActiveEnvironment">
+    <xs:complexType>
+      <xs:attribute name="EnvironmentName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetActiveVersion">
+    <xs:complexType>
+      <xs:attribute name="VersionName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDataStoreProperty">
+    <xs:complexType>
+      <xs:attribute name="Datastore" use="required"/>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="Value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetGeneratorProperty">
+    <xs:complexType>
+      <xs:attribute name="Generator" use="required"/>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="Value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetKnowledgeBaseProperty">
+    <xs:complexType>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="Value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetObjectProperty">
+    <xs:complexType>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="Object" use="required"/>
+      <xs:attribute name="Value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVersionProperty">
+    <xs:complexType>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="Value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpecifyAll">
+    <xs:complexType>
+      <xs:attribute name="ForceRebuild" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFromServer">
+    <xs:complexType>
+      <xs:attribute name="OutputFile" use="required"/>
+      <xs:attribute name="ServerPassword" use="required"/>
+      <xs:attribute name="ServerUserName" use="required"/>
+      <xs:attribute name="UpdateKbProperties" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateModule">
+    <xs:complexType>
+      <xs:attribute name="PackageModule" use="required"/>
+      <xs:attribute name="Version" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Import">
+    <xs:complexType>
+      <xs:attribute name="File"/>
+      <xs:attribute name="Project"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
