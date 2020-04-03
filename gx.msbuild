@@ -38,6 +38,34 @@
 		<SetObjectProperty Object="$(ObjectName)" Name="$(PropertyName)" Value="$(PropertyValue)" />
 	</Target>
 	
+	<Target Name="SetVersionProperty" DependsOnTargets="OpenKnowledgeBase">
+		<SetVersionProperty Name="$(PropertyName)" Value="$(PropertyValue)"/>
+	</Target>
+	
+	<Target Name="SetKnowledgeBaseProperty " DependsOnTargets="OpenKnowledgeBase">
+		<SetKnowledgeBaseProperty  Name="$(PropertyName)" Value="$(PropertyValue)"/>
+	</Target>
+	
+	<Target Name="SetDataStoreProperty  " DependsOnTargets="OpenKnowledgeBase">
+		<SetDataStoreProperty Datastore="$(DataStoreName)" Name="$(PropertyName)" Value="$(PropertyValue)"/>
+	</Target>
+	
+	<Target Name="Run" DependsOnTargets="OpenKnowledgeBase">
+		<Run ForceRebuild="$(Rebuild)" Build="$(Build)" BuildCalled="$(BuildCalled)" ObjectName="$(ObjectName)" DetailedNavigation="$(DetailedNavigation)" />
+	</Target>
+
+	<Target Name="SetActiveVersion" DependsOnTargets="OpenKnowledgeBase">
+		<SetActiveVersion VersionName="$(VersionName)" />
+	</Target>
+	
+	<Target Name="MergeVersions" DependsOnTargets="OpenKnowledgeBase">
+		<MergeVersions SourceVersion="$(SourceVersion)" TargetVersion="$(TargetVersion)" SinceDate="$(SinceDate)" />
+	</Target>
+	
+	<Target Name="SetActiveEnvironment" DependsOnTargets="OpenKnowledgeBase">
+		<SetActiveEnvironment EnvironmentName="$(EnvironmentName)" />
+	</Target>
+	
 	<Target Name="PackageModule">
 		<PackageModule 
 			PackageModule="$(PackageModule)"
@@ -54,7 +82,11 @@
 	</Target>
 	
 	<Target Name="ImportXPZ">
-		<Import File="$(ImportFile)" />
+		<Import File="$(File)" />
+	</Target>
+	
+	<Target Name="ExportXPZ">
+		<Export File="$(File)" />
 	</Target>
 	
 	<Target Name="UpdateFromServer" DependsOnTargets="OpenKnowledgeBase">
