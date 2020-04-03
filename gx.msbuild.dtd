@@ -1,0 +1,146 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT ns1:Project (ns1:Import+,ns1:Target+)>
+<!ATTLIST ns1:Project
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  DefaultTargets NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:Target (ns1:Import|ns1:BuildAll|ns1:BuildOne|ns1:Compile
+                      |ns1:Export|ns1:Generate|ns1:MergeVersions
+                      |ns1:OpenKnowledgeBase|ns1:PackageModule
+                      |ns1:Reorganize|ns1:Run|ns1:SetActiveEnvironment
+                      |ns1:SetActiveVersion|ns1:SetDataStoreProperty
+                      |ns1:SetGeneratorProperty
+                      |ns1:SetKnowledgeBaseProperty
+                      |ns1:SetObjectProperty|ns1:SetVersionProperty
+                      |ns1:SpecifyAll|ns1:UpdateFromServer
+                      |ns1:UpdateModule)>
+<!ATTLIST ns1:Target
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  DependsOnTargets NMTOKEN #IMPLIED
+  Name NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:BuildAll EMPTY>
+<!ATTLIST ns1:BuildAll
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'>
+
+<!ELEMENT ns1:BuildOne EMPTY>
+<!ATTLIST ns1:BuildOne
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  CompileMains CDATA #REQUIRED
+  ForceRebuild CDATA #REQUIRED
+  ObjectName CDATA #REQUIRED>
+
+<!ELEMENT ns1:Compile EMPTY>
+<!ATTLIST ns1:Compile
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  ObjectName NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:Export EMPTY>
+<!ATTLIST ns1:Export
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  File CDATA #REQUIRED>
+
+<!ELEMENT ns1:Generate EMPTY>
+<!ATTLIST ns1:Generate
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'>
+
+<!ELEMENT ns1:MergeVersions EMPTY>
+<!ATTLIST ns1:MergeVersions
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  SinceDate CDATA #REQUIRED
+  SourceVersion CDATA #REQUIRED
+  TargetVersion CDATA #REQUIRED>
+
+<!ELEMENT ns1:OpenKnowledgeBase EMPTY>
+<!ATTLIST ns1:OpenKnowledgeBase
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  Directory CDATA #REQUIRED>
+
+<!ELEMENT ns1:PackageModule EMPTY>
+<!ATTLIST ns1:PackageModule
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  OutputDirectory CDATA #REQUIRED
+  PackageModule CDATA #REQUIRED
+  Rebuild CDATA #REQUIRED>
+
+<!ELEMENT ns1:Reorganize EMPTY>
+<!ATTLIST ns1:Reorganize
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'>
+
+<!ELEMENT ns1:Run EMPTY>
+<!ATTLIST ns1:Run
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  Build CDATA #REQUIRED
+  BuildCalled CDATA #REQUIRED
+  DetailedNavigation CDATA #REQUIRED
+  ForceRebuild CDATA #REQUIRED
+  ObjectName CDATA #REQUIRED>
+
+<!ELEMENT ns1:SetActiveEnvironment EMPTY>
+<!ATTLIST ns1:SetActiveEnvironment
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  EnvironmentName CDATA #REQUIRED>
+
+<!ELEMENT ns1:SetActiveVersion EMPTY>
+<!ATTLIST ns1:SetActiveVersion
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  VersionName CDATA #REQUIRED>
+
+<!ELEMENT ns1:SetDataStoreProperty EMPTY>
+<!ATTLIST ns1:SetDataStoreProperty
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  Datastore CDATA #REQUIRED
+  Name CDATA #REQUIRED
+  Value CDATA #REQUIRED>
+
+<!ELEMENT ns1:SetGeneratorProperty EMPTY>
+<!ATTLIST ns1:SetGeneratorProperty
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  Generator CDATA #REQUIRED
+  Name CDATA #REQUIRED
+  Value CDATA #REQUIRED>
+
+<!ELEMENT ns1:SetKnowledgeBaseProperty EMPTY>
+<!ATTLIST ns1:SetKnowledgeBaseProperty
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  Name CDATA #REQUIRED
+  Value CDATA #REQUIRED>
+
+<!ELEMENT ns1:SetObjectProperty EMPTY>
+<!ATTLIST ns1:SetObjectProperty
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  Name CDATA #REQUIRED
+  Object CDATA #REQUIRED
+  Value CDATA #REQUIRED>
+
+<!ELEMENT ns1:SetVersionProperty EMPTY>
+<!ATTLIST ns1:SetVersionProperty
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  Name CDATA #REQUIRED
+  Value CDATA #REQUIRED>
+
+<!ELEMENT ns1:SpecifyAll EMPTY>
+<!ATTLIST ns1:SpecifyAll
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  ForceRebuild CDATA #REQUIRED>
+
+<!ELEMENT ns1:UpdateFromServer EMPTY>
+<!ATTLIST ns1:UpdateFromServer
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  OutputFile CDATA #REQUIRED
+  ServerPassword CDATA #REQUIRED
+  ServerUserName CDATA #REQUIRED
+  UpdateKbProperties NMTOKEN #REQUIRED>
+
+<!ELEMENT ns1:UpdateModule EMPTY>
+<!ATTLIST ns1:UpdateModule
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  PackageModule CDATA #REQUIRED
+  Version CDATA #REQUIRED>
+
+<!ELEMENT ns1:Import EMPTY>
+<!ATTLIST ns1:Import
+  xmlns:ns1 CDATA #FIXED 'http://schemas.microsoft.com/developer/msbuild/2003'
+  File CDATA #IMPLIED
+  Project CDATA #IMPLIED>
