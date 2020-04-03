@@ -9,4 +9,4 @@ addons:
 
 script:
   # Check gx.msbuild
-  - xmllint --noout --dtdvalid gx.msbuild.dtd gx.msbuild
+  - xmllint --schema gx.msbuild.dtd gx.msbuild --noout 
