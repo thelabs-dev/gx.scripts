@@ -11,7 +11,7 @@
 	</Target>
 	
 	<Target Name="SpecifyAll">
-		<SpecifyAll ForceRebuild="$(Rebuild)" />
+		<SpecifyAlld ForceRebuild="$(Rebuild)" />
 	</Target>
 	
 	<Target Name="Generate">
